@@ -18,3 +18,7 @@
   dotnet add package Slack.NetStandard
 ```
 
+### Add SLACK_TOKEN in GitHub's repository settings
+- Choose -> Secrets and variables 
+- Choose Actions -> New Repository secret
+
