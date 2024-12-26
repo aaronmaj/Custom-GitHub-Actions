@@ -34,7 +34,7 @@ jobs:
       with:
         github-username: ${{ github.actor }}
         github-token: ${{ secrets.GITHUB_TOKEN }}
-        slack-token: ${{ secrets.SLACK_BOT_TOKEN }}
+        slack-token: ${{ secrets.SLACK_TOKEN }}
     
     - name: Print Slack User ID
       run: echo "${{ steps.test-employee-js-action.outputs.slack-user-id }}"
