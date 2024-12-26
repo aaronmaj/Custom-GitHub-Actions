@@ -35,7 +35,7 @@ runs:
       if: steps.get-employee-js.outputs.slack-user-id != steps.get-employee-docker.outputs.slack-user-id
       shell: sh
 
-    - name: Send a saved artifact to a Slack workflow
+    - name: Send a saved artifact to a Slack workflows
       uses: slackapi/slack-github-action@v2.0.0
       if: steps.get-employee-js.outputs.slack-user-id != steps.get-employee-docker.outputs.slack-user-id
 
