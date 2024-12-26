@@ -23,6 +23,7 @@ jobs:
         node-version-file: get-employee-js-action/.nvmrc
         cache-dependency-path: get-employee-js-action
         cache: npm
+
     - name: Install Dependencies
       run: npm ci
       working-directory: get-employee-js-action
