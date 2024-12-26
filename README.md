@@ -17,6 +17,13 @@
   dotnet add package Octokit
   dotnet add package Slack.NetStandard
 ```
+### Generate Slack User OAuth Token (SLACK_TOKEN) and Bot User OAuth Token
+Follow along the documentation provided here:
+```
+- https://github.com/kasunkv/slack-notification/blob/master/generate-slack-token.md
+```
+Make sure you add this scope to the User Token: 
+```users:read.email``` in order to view email addresses of people in a workspace
 
 ### Add SLACK_TOKEN in GitHub's repository settings
 - Choose -> Secrets and variables 
