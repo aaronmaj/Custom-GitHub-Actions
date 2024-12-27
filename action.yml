@@ -14,7 +14,10 @@ inputs:
   slack-bot-token:
     description: 'The organizational Slack Access Token to send chat messages'
     required: true
-
+outputs:
+  time:
+    description: 'The time the message was sent'
+    value: ${{ steps.slack-send.outputs.ts }}
 runs:
   using: composite
   steps:
