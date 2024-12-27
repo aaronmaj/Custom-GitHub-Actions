@@ -41,7 +41,7 @@ runs:
       if: steps.get-employee-js.outputs.slack-user-id != steps.get-employee-docker.outputs.slack-user-id
       shell: sh
 
-    - name: slack-send
+    - id: slack-send
       uses: slackapi/slack-github-action@v2
       if: steps.get-employee-js.outputs.slack-user-id != steps.get-employee-docker.outputs.slack-user-id
 
