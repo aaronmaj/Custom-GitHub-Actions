@@ -9,7 +9,10 @@ inputs:
     description: 'The GitHub username of the employee to look up'
     required: true
   slack-token:
-    description: 'The organizational Slack access token'
+    description: 'The organizational Slack Access Token to lookup users'
+    required: true
+  slack-bot-token:
+    description: 'The organizational Slack Access Token to send chat messages'
     required: true
 
 runs:
@@ -35,12 +38,13 @@ runs:
       if: steps.get-employee-js.outputs.slack-user-id != steps.get-employee-docker.outputs.slack-user-id
       shell: sh
 
-    - name: Send a saved artifact to a Slack workflows
-      uses: slackapi/slack-github-action@v2.0.0
+    - name: slack-send
+      uses: slackapi/slack-github-action@v2
       if: steps.get-employee-js.outputs.slack-user-id != steps.get-employee-docker.outputs.slack-user-id
 
       with:
-        channel-id: ${{ steps.get-employee-js.outputs.slack-user-id }}
-        slack-message: "GitHub build results : {{ job.status }}\n${{ github.event.pull_request.html.url || github.event.head_commit.url }}"
-      env:
-        SLACK_BOT_TOKEN: ${{ inputs.slack-bot-token }}
+        method: chat.postMessage
+        token: ${{ inputs.slack-bot-token }}
+        payload: |
+          channel: ${{ steps.get-employee-js.outputs.slack-user-id }}
+          text: "GitHub build results : {{ job.status }}\n${{ github.event.pull_request.html.url || github.event.head_commit.url }}"
