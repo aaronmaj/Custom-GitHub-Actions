@@ -17,7 +17,7 @@ inputs:
 outputs:
   time:
     description: 'The time the message was sent'
-    value: ${{ steps.slack-send.outputs.ts }}
+    value: ${{ steps.slack-send.outputs.timestamp }}
 runs:
   using: composite
   steps:
