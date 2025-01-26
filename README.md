@@ -29,3 +29,19 @@ Make sure you add this scope to the User Token:
 ```Choose -> Secrets and variables ``` \
 ```Choose Actions -> New Repository secret```
 
+
+## Inputs and Outputs
+
+### Inputs
+
+| Name            | Default Example       | Description                                      |
+|-----------------|-----------------------|--------------------------------------------------|
+| `github-token`  | `ghp_exampleToken123` | The GitHub token to authenticate with GitHub API |
+| `github-username`| `octocat`            | The GitHub username of the employee to look up   |
+| `slack-token`   | `xoxb_exampleToken123`| The organizational Slack access token            |
+
+### Outputs
+
+| Name            | Description                                      |
+|-----------------|--------------------------------------------------|
+| `slack-user-id` | The Slack user ID of the employee, if found!     |
